@@ -18,3 +18,15 @@ Each module must follow:
 - Maven (Dependency Management)
 - JUnit 5 (Professional Testing)
 - System simulation (main() entrypoint)
+
+### What to Implement (Tasks)
+
+#### Task 1️⃣: Model Products
+
+- Create Product (abstract) with `id`, `name`, and `abstract getType()`. 
+- Create concrete products:
+  - `Document` 
+  - `Electronic` 
+  - `Perishable` (add `expirationDay`, `isExpired(today)` method).
+- Expired products must throw ExpiredProductException. 
+- Use clean `toString()` overrides.
