@@ -37,3 +37,12 @@ Each module must follow:
 - Create `StorageUnit<T>` for single items. 
 - Create `MultiStorageUnit<T>` for multiple `items (List<T>)`. 
 - Handle null items and empty storage via custom exceptions.
+
+#### Task 3️⃣: Packages and Inventory
+
+- `Package<T>` groups multiple items.
+- `Inventory<T>` maps package IDs to packages (`Map<String, Package<T>>`). 
+- Add methods to:
+  - Add and retrieve packages 
+  - Validate contents 
+  - Handle expired products using exceptions

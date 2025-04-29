@@ -72,5 +72,14 @@ SmartSupplyChain/
 - Place your tests under src/test/java/ following the same package structure. 
 - Aim for clean, isolated, and descriptive test cases.
 
+### 🌱 Learning Goals
+By the end of this project, you will confidently demonstrate:
+1. Proficiency in advanced Java programming 
+2. Building and structuring real-world applications 
+3. Writing clean, testable, and maintainable code 
+4. Using Maven and JUnit like a professional developer
+
+
+
 
 

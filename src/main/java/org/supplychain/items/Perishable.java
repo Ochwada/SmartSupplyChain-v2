@@ -3,6 +3,8 @@ package org.supplychain.items;
 
 import org.supplychain.exception.ExpiredProductException;
 
+import java.time.LocalDate;
+
 /**
  * *******************************************************
  * Package: org.supplychain.items
@@ -27,18 +29,20 @@ public class Perishable extends Product{
     public String getType(){
        return "Perishable";
    }
+   // ---- Expiration Day Logic ----
 
-   public boolean isExpired(int today){
-       System.out.print("Expired: ");
+   public boolean isExpired( ){
+       int today = LocalDate.now().getDayOfYear(); //Day of the Year
        return today > getExpirationDay();
    }
 
-   public void validateExpiration(int today){
-       if(isExpired(today)){
+   public void validateExpiration(){
+       if(isExpired()){
            throw new ExpiredProductException("Product expired: " + toString());
        }
 
    }
+   // --------------------------------
 
     // --- Getter and Setter ---
     public int getExpirationDay() {
@@ -47,6 +51,11 @@ public class Perishable extends Product{
 
     public void setExpirationDay(int expirationDay) {
         this.expirationDay = expirationDay;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " (Expires on day " + expirationDay + ")";
     }
 
 }
