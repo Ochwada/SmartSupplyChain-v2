@@ -1,5 +1,5 @@
-# SmartSupplyChain-Tasks
-
+# SmartSupplyChain
+## Tasks
 
 ## Objective:  Mastering Generics, OOP, Collections, Maven, and JUnit 5
 ### *Real-World Systems Engineering, the Modern Way*
@@ -30,3 +30,10 @@ Each module must follow:
   - `Perishable` (add `expirationDay`, `isExpired(today)` method).
 - Expired products must throw ExpiredProductException. 
 - Use clean `toString()` overrides.
+
+
+#### Task 2️⃣: Generic Storage Units
+
+- Create `StorageUnit<T>` for single items. 
+- Create `MultiStorageUnit<T>` for multiple `items (List<T>)`. 
+- Handle null items and empty storage via custom exceptions.

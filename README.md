@@ -1,23 +1,26 @@
-# SmartSupplyChain-v2
+# 🚚 SmartSupplyChain-v2
 
 
-## Objective:  Mastering Generics, OOP, Collections, Maven, and JUnit 5
-### *Real-World Systems Engineering, the Modern Way*
+## 🎯 Objective 
+Master core Java concepts including  **Generics**, **OOP**, **Collections**, **Maven**, and **JUnit 5**
 
-### Project Overview
+> Real-World Systems Engineering, the Modern Way
+
+### 📦 Project Overview
 #### Description
-Building the core of SmartSupplyChain, a Java-powered logistics system that models the flow of products 
-— from suppliers, through warehouses, to customers — safely, scalably, and fault-tolerantly.
+SmartSupplyChain is a modular, Java-powered logistics system that models the safe and scalable flow of 
+products — from suppliers, through warehouses, to end customers. It reflects real-world supply chain 
+operations with strong emphasis on:
 
 Each module must follow:
 
-- OOP (Encapsulation, Abstraction, Inheritance)
+- Object-Oriented Programming (Encapsulation, Abstraction, Inheritance)
 - Generics (Type Safety, Bounded Types, Wildcards)
 - Exception Handling (Custom Exceptions, Validation)
-- Collections (List, Map)
-- Maven (Dependency Management)
-- JUnit 5 (Professional Testing)
-- System simulation (main() entrypoint)
+- Java Collections (List, Map)
+- Maven for Build & Dependency Management 
+- JUnit 5 for Clean, Maintainable Unit Testing
+- A system simulation via a `main()` entrypoint)
 
 ### Project Structure
 
@@ -28,7 +31,7 @@ Build this structure inside `src/main/java/`:
 
 SmartSupplyChain/
  ├── main/
- │    └── SmartSupplyChainApp.java
+ │    └── SmartSupplyChainApp.java              # Main simulation entrypoint
  ├── items/
  │    ├── Product.java
  │    ├── Perishable.java
@@ -52,10 +55,22 @@ SmartSupplyChain/
 
 ```
 
-✅ Using appropriate Java Packages (org.supplychain.items, etc).
+### Implementation Guidelines
+- Organize classes using meaningful **Java packages**
 
-✅ Following best OOP practices.
+(e.g., `org.supplychain.items`, `org.supplychain.inventory`, etc.)
 
-✅ Writing SmartSupplyChainApp.java as the simulation.
+- Follow **SOLID** principles and **best OOP practices**. 
+- Write `SmartSupplyChainApp.java` as your main simulation class, modeling:
+  - Creating suppliers and customers 
+  - Initializing inventory and moving products 
+  - Handling exceptions gracefully
+
+
+### Testing
+- Use JUnit 5 for unit testing each core component. 
+- Place your tests under src/test/java/ following the same package structure. 
+- Aim for clean, isolated, and descriptive test cases.
+
 
 

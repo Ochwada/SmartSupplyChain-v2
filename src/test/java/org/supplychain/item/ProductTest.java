@@ -66,6 +66,7 @@ public class ProductTest {
         String expected = "Product{id='789', name='Guide'}";
         assertEquals(expected, doc.toString());
     }
+
     // -----------------------------------------------------
     // -----------------------------------------------------
     @AfterEach
