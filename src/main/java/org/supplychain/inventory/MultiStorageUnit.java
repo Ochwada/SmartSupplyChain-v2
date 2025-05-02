@@ -1,6 +1,9 @@
 package org.supplychain.inventory;
 
 
+import org.supplychain.exception.EmptyStorageException;
+import org.supplychain.exception.InvalidInputException;
+
 import java.util.*;
 
 
@@ -24,27 +27,44 @@ public class MultiStorageUnit<T> {
     private List<T> items;
 
     // Constructs an empty MultiStorageUnit.
-
     public MultiStorageUnit() {
         this.items = new ArrayList<>();
     }
 
     /**
-     * Adds an item to the storage.
+     * Adds a non-null item to the storage collection.
+     * <p>
+     * Ensures data integrity by rejecting null values.
+     * </p>
      *
-     * @param item The item to add.
+     * @param item The item to add to the storage.
+     * @throws InvalidInputException if the provided item is null.
      */
-    public void addItem(T item) {
+    public void addItem(T item) throws InvalidInputException {
+        if (item == null) throw new InvalidInputException("Cannot store null item");
+
         items.add(item);
     }
 
     /**
-     * Retrieves all stored items.
+     * Retrieves all stored items as an unmodifiable list.
+     * <p>
+     * This method ensures that the storage is not empty before returning the items.
+     * The returned list is read-only to prevent external modification of the internal data.
+     * </p>
      *
-     * @return The list of stored items.
+     * @return An unmodifiable list of stored items.
+     * @throws EmptyStorageException if the storage contains no items.
      */
-    public List<T> getItems() {
-        return items;
+    public List<T> getItems() throws EmptyStorageException {
+        // option 1
+        //return new ArrayList<>(); // creating new reference in returns
+
+        // option 2
+
+        if (items.isEmpty()) throw new EmptyStorageException("Storage is empty");
+        return Collections.unmodifiableList(items); // Prevents external modifications
+
     }
 
     /**
@@ -55,6 +75,7 @@ public class MultiStorageUnit<T> {
     public int size() {
         return items.size();
     }
+
     /**
      * Returns a string representation of the MultiStorageUnit and its contents.
      *
@@ -64,7 +85,6 @@ public class MultiStorageUnit<T> {
     public String toString() {
         return "MultiStorageUnit contains: " + items;
     }
-
 
 
 }
