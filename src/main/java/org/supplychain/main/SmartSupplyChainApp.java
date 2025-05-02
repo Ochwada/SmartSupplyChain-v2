@@ -22,6 +22,7 @@ public class SmartSupplyChainApp {
         System.out.println("\uD83C\uDF9F️ === Welcome to Our Smart Supply Chain === \uD83C\uDF9F");
 
         try {
+            /*
 
             // --- 3. Packages and Inventory
             System.out.println("\n📦 Packages and Inventory 📦");
@@ -56,7 +57,7 @@ public class SmartSupplyChainApp {
             documentPkg.getItems().forEach(System.out::println);
             // -----------------------------------------------------
             // -----------------------------------------------------
-            /*
+
             // --- 2. Generic Storage Units
 
             System.out.println("\n\uD83D\uDC8E Generic Storage Units \uD83D\uDC8E");

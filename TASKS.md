@@ -46,3 +46,10 @@ Each module must follow:
   - Add and retrieve packages 
   - Validate contents 
   - Handle expired products using exceptions
+
+#### Task 4️⃣: People (Supplier and Customer)
+
+- `Person (abstract)` → common fields + methods.
+  `Supplier` owns `List<Package<? extends Product>>`
+- `Customer` can `receivePackage(Package<?>)`
+- Handle invalid input with `InvalidInputException.`
