@@ -23,14 +23,14 @@ public class StorageUnit<T> {
     private T item;
 
 
-    /**
-     * Constructs a StorageUnit with the specified item.
-     *
-     * @param item The item to store.
-     */
-    public StorageUnit(T item) {
-        this.item = item;
-    }
+//    /**
+//     * Constructs a StorageUnit with the specified item.
+//     *
+//     * @param item The item to store.
+//     */
+//    public StorageUnit(T item) {
+//        this.item = item;
+//    }
 
 
     /**
