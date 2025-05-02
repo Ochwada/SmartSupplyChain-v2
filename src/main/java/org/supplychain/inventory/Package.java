@@ -1,5 +1,7 @@
 package org.supplychain.inventory;
 
+import org.supplychain.exception.InvalidInputException;
+
 import java.util.*;
 
 /**
@@ -22,23 +24,46 @@ import java.util.*;
 
 public class Package<T> {
 
-    private final List<T> items;
+    // Internal list that holds the contents of the package
+    private List<T> contents;
 
-
+    /**
+     * Constructs an empty package.
+     * Initializes the contents list to store items of type T.
+     */
     public Package() {
-        this.items = new ArrayList<>();
+        this.contents = new ArrayList<>();
     }
 
-    public void addItem(T item) {
-        items.add(item);
+    /**
+     * Adds a non-null item to the package.
+     *
+     * @param item The item to be added.
+     * @throws InvalidInputException if the item is null.
+     */
+    public void addItem(T item) throws InvalidInputException {
+        if (item == null) {
+            throw new InvalidInputException("Null item in the package");
+        }
+        contents.add(item);
     }
 
-    public List<T> getItems() {
-        return items;
+    /**
+     * Returns an unmodifiable view of the contents in the package.
+     * This ensures that the caller cannot modify the internal list directly.
+     *
+     * @return A read-only list of the package's contents.
+     */
+    public List<T> getItem() {
+        return Collections.unmodifiableList(contents);
     }
 
+    /**
+     * Checks whether the package is empty.
+     *
+     * @return true if the package contains no items; false otherwise.
+     */
     public boolean isEmpty() {
-        return items.isEmpty();
+        return contents.isEmpty();
     }
-
 }

@@ -4,6 +4,7 @@ import org.supplychain.exception.*;
 import org.supplychain.items.*;
 
 import java.util.*;
+
 /**
  * *******************************************************
  * Package: org.supplychain.inventory
@@ -17,55 +18,55 @@ import java.util.*;
 
 public class Inventory<T> {
 
-    private final Map<String, Package<T>> inventoryMap;
+    private Map<String, Package<T>> packages;
 
     /**
      * Constructs an empty inventory.
      */
     public Inventory() {
-        this.inventoryMap = new HashMap<>();
+        this.packages = new HashMap<>();
     }
 
 
     /**
      * Adds a package to the inventory.
      *
-     * @param packageId unique identifier for the package
-     * @param pkg the package to be added
-     * @throws IllegalArgumentException if the package is null or empty
+     * @param packageId The unique identifier for the package.
+     * @param pkg       The package to be added to the inventory.
+     * @throws InvalidInputException if the package ID is null, or the package is null or empty.
      */
-
-    public void addPackage(String packageId, Package<T> pkg) {
-        if (pkg == null || pkg.isEmpty()) {
-            throw new IllegalArgumentException("Cannot add null or empty package");
+    public void addPackage(String packageId, Package<T> pkg) throws InvalidInputException {
+        if (packageId == null || pkg == null || pkg.isEmpty()) {
+            throw new InvalidInputException("Invalid inventory input: package must not be null or empty");
         }
-        inventoryMap.put(packageId, pkg);
+        packages.put(packageId, pkg);
     }
 
 
     public Package<T> getPackage(String packageId) {
-        return inventoryMap.get(packageId);
+        return packages.get(packageId);
     }
+    // -----------------------OTHER CODES--------------
 
     /**
      * Validates the contents of the specified package.
-     *
+     * <p>
      * If the package contains any {@code Perishable} item that is expired,
      * an {@code ExpiredProductException} is thrown.
      *
      * @param packageId the ID of the package to validate
      * @throws IllegalArgumentException if the package does not exist
-     * @throws ExpiredProductException if an expired product is found
+     * @throws ExpiredProductException  if an expired product is found
      */
 
     public void validatePackage(String packageId) { // It takes a String packageId, the unique identifier of the package to validate.
-        Package<T> pkg = inventoryMap.get(packageId); // Retrieve the package associated with the given packageId.
+        Package<T> pkg = packages.get(packageId); // Retrieve the package associated with the given packageId.
 
         if (pkg == null) {
             throw new IllegalArgumentException("Package ID not found: " + packageId);
         }
 
-        for (T item : pkg.getItems()) {
+        for (T item : pkg.getItem()) {
             if (item instanceof Perishable) { //  If the item is actually a Perishable product (e.g., Milk, Fruits).
                 Perishable p = (Perishable) item; // If the item is perishable, cast it to Perishable so  isExpired() method can be called.
                 if (p.isExpired()) {
